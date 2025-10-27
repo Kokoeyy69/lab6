@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 6 - Web Framework & jQuery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        footer {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .sidebar {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <!-- Header -->
+        <header class="text-center p-4 rounded">
+            <h1>Selamat Datang di Web Framework</h1>
+            <p class="lead">Praktikum 6 - Bootstrap & jQuery</p>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4 rounded">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Menu</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Profil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tombol Interaktif -->
+        <div class="text-center mt-3">
+            <button id="toggleSidebar" class="btn btn-primary">Sembunyikan Sidebar</button>
+        </div>
+
+        <!-- Layout Grid -->
+        <div class="row mt-4">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="col-md-4 mb-3">
+                <div class="sidebar p-3">
+                    <h5>Sidebar</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="#">Beranda</a></li>
+                        <li class="list-group-item"><a href="#">Artikel</a></li>
+                        <li class="list-group-item"><a href="#">Galeri</a></li>
+                        <li class="list-group-item"><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="col-md-8">
+                <div class="content p-4">
+                    <h2>Konten Utama</h2>
+                    <p>
+                        Ini adalah area konten utama dengan efek interaktif dari <strong>jQuery</strong>. Gunakan tombol di atas untuk menampilkan atau menyembunyikan sidebar dengan animasi.
+                    </p>
+
+                    <h5 class="mt-4">Contoh Komponen Bootstrap:</h5>
+                    <button class="btn btn-success m-1">Tombol Sukses</button>
+                    <button class="btn btn-danger m-1">Tombol Peringatan</button>
+
+                    <div class="alert alert-info mt-4" role="alert">
+                        Klik tombol "Sembunyikan Sidebar" untuk melihat efek jQuery Slide!
+                    </div>
+
+                    <h5 class="mt-4">Contoh Tabel:</h5>
+                    <table class="table table-bordered table-striped mt-2">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Bootstrap</td>
+                                <td>Framework CSS Populer</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>jQuery</td>
+                                <td>Framework JavaScript untuk efek dan interaksi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center p-3 mt-4 rounded">
+            <small>&copy; 2025 Praktikum Web Framework - Universitas Pelita Bangsa</small>
+        </footer>
+    </div>
+
+    <!-- JS Files -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script jQuery Interaktif -->
+    <script>
+        $(document).ready(function() {
+            let visible = true;
+
+            $("#toggleSidebar").click(function() {
+                if (visible) {
+                    $("#sidebar").slideUp(600);
+                    $(this).text("Tampilkan Sidebar");
+                } else {
+                    $("#sidebar").slideDown(600);
+                    $(this).text("Sembunyikan Sidebar");
+                }
+                visible = !visible;
+            });
+
+            // Efek tambahan saat mouse masuk dan keluar dari konten
+            $(".content").mouseenter(function() {
+                $(this).animate({
+                    backgroundColor: "#e9f7ef"
+                }, 300);
+            }).mouseleave(function() {
+                $(this).animate({
+                    backgroundColor: "#ffffff"
+                }, 300);
+            });
+        });
+    </script>
+</body>
+
+</html>
